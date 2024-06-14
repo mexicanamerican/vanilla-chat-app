@@ -18,7 +18,6 @@ const models = {
     "@cf/tinyllama/tinyllama-1.1b-chat-v1.0",
     "@hf/google/gemma-7b-it",
     "@hf/mistral/mistral-7b-instruct-v0.2",
-    "@hf/mistral/mistral-7b-instruct-v0.2",
     "@hf/nexusflow/starling-lm-7b-beta",
     "@hf/nousresearch/hermes-2-pro-mistral-7b",
     "@hf/thebloke/codellama-7b-instruct-awq",
@@ -31,6 +30,7 @@ const models = {
     "@hf/thebloke/openchat_3.5-awq",
     "@hf/thebloke/openhermes-2.5-mistral-7b-awq",
     "@hf/thebloke/zephyr-7b-beta-awq",
+    "@cf/bytedance/stable-diffusion-xl-lightning",
   ],
   ga: [
     "@cf/meta/llama-2-7b-chat-fp16",
@@ -38,6 +38,7 @@ const models = {
     "@cf/mistral/mistral-7b-instruct-v0.1",
   ],
 };
+
 const domReady = (callback) => {
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", callback);
