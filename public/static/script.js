@@ -31,6 +31,9 @@ const models = {
     "@hf/thebloke/openhermes-2.5-mistral-7b-awq",
     "@hf/thebloke/zephyr-7b-beta-awq",
     "@cf/bytedance/stable-diffusion-xl-lightning",
+    "@cf/openai/whisper",
+    "@cf/openai/whisper-tiny-en",
+    "@cf/fblgit/una-cybertron-7b-v2-bf16"
   ],
   ga: [
     "@cf/meta/llama-2-7b-chat-fp16",
@@ -38,6 +41,7 @@ const models = {
     "@cf/mistral/mistral-7b-instruct-v0.1",
   ],
 };
+
 
 const domReady = (callback) => {
   if (document.readyState === "loading") {
