@@ -33,15 +33,16 @@ const models = {
     "@cf/openai/whisper",
     "@cf/openai/whisper-tiny-en",
     "@cf/fblgit/una-cybertron-7b-v2-bf16",
-    "@cf/meta/llama-3.2-11b-vision-instruct", // Added Llama 3.2 vision model
-    "@cf/meta/llama-3.2-1b-instruct",       // Added Llama 3.2 text model
-    "@cf/meta/llama-3.2-3b-instruct"       // Added Llama 3.2 text model
+    "@cf/meta/llama-3.2-11b-vision-instruct", // Added last time (Sept 2024)
+    "@cf/meta/llama-3.2-1b-instruct",       // Added last time (Sept 2024)
+    "@cf/meta/llama-3.2-3b-instruct",      // Added last time (Sept 2024)
+    "@cf/deepseek-ai/deepseek-r1-distill-qwen-32b" // New model (Jan 2025)
   ],
   ga: [
     "@cf/meta/llama-2-7b-chat-fp16",
     "@cf/meta/llama-2-7b-chat-int8",
     "@cf/mistral/mistral-7b-instruct-v0.1",
-    "@cf/meta/llama-3.1-8b-instruct"       // Promoted to GA based on prominence
+    "@cf/meta/llama-3.1-8b-instruct"       // Promoted to GA
   ]
 };
 
@@ -57,7 +58,6 @@ let md;
 domReady(() => {
   md = window.markdownit();
   const modelSelect = document.getElementById("model-select");
-  // Set model options
   for (const model of models.ga) {
     const opt = document.createElement("option");
     opt.setAttribute("value", model);
@@ -84,7 +84,6 @@ domReady(() => {
   renderPreviousMessages();
 });
 
-// Based on the message format of `{role: "user", content: "Hi"}`
 function createChatMessageElement(msg) {
   const div = document.createElement("div");
   div.className = `message-${msg.role}`;
@@ -156,7 +155,6 @@ async function sendMessage() {
   const input = document.getElementById("message-input");
   const chatHistory = document.getElementById("chat-history");
 
-  // Create user message element
   const userMsg = { role: "user", content: input.value };
   chatHistory.prepend(createChatMessageElement(userMsg));
 
@@ -179,7 +177,6 @@ async function sendMessage() {
   chatHistory.prepend(assistantMessage);
   const assistantResponse = assistantMessage.firstChild;
 
-  // Scroll to the latest message
   chatHistory.scrollTop = chatHistory.scrollHeight;
 
   const reader = response.body.pipeThrough(new TextDecoderStream()).getReader();
